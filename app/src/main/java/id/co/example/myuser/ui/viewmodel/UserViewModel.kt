@@ -1,16 +1,21 @@
 package id.co.example.myuser.ui.viewmodel
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import id.co.example.myuser.helper.Constant.TAG
-import id.co.example.myuser.model.api.ApiConfig
-import id.co.example.myuser.model.response.*
+import id.co.example.myuser.model.local.UserRepository
+import id.co.example.myuser.model.local.entity.UserEntity
+import id.co.example.myuser.model.remote.api.ApiConfig
+import id.co.example.myuser.model.remote.response.*
 import retrofit2.Call
 import retrofit2.Response
 
-class UserViewModel : ViewModel() {
+class UserViewModel(application: Application) : ViewModel() {
+
+    private val userRepository: UserRepository = UserRepository(application)
 
     private val _listSearch = MutableLiveData<List<UserSearchItem>?>()
     val listSearch: LiveData<List<UserSearchItem>?> = _listSearch
@@ -145,4 +150,17 @@ class UserViewModel : ViewModel() {
         })
     }
 
+    fun insert (userEntity: UserEntity) {
+        userRepository.insertUser(userEntity)
+    }
+
+    fun update (userEntity: UserEntity) {
+        userRepository.updateUser(userEntity)
+    }
+
+    fun delete (userEntity: UserEntity) {
+        userRepository.deleteUser(userEntity)
+    }
+
+    fun getAllUser(): LiveData<List<UserEntity>> = userRepository.getAllUser()
 }

@@ -1,4 +1,4 @@
-package id.co.example.myuser.model.api
+package id.co.example.myuser.model.remote.api
 
 import id.co.example.myuser.helper.Constant.BASE_URL
 import okhttp3.OkHttpClient

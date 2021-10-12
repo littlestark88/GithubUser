@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import id.co.example.myuser.databinding.ListUserFollowerBinding
-import id.co.example.myuser.model.response.UserFollowerItem
+import id.co.example.myuser.model.remote.response.UserFollowerItem
 
 class UserFollowerAdapter: RecyclerView.Adapter<UserFollowerAdapter.FollowerViewHolder>() {
     private val data = ArrayList<UserFollowerItem>()

@@ -1,6 +1,6 @@
-package id.co.example.myuser.model.api
+package id.co.example.myuser.model.remote.api
 
-import id.co.example.myuser.model.response.*
+import id.co.example.myuser.model.remote.response.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

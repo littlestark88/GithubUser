@@ -9,26 +9,29 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.app.ShareCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.example.myuser.R
 import id.co.example.myuser.databinding.ActivitySearchBinding
 import id.co.example.myuser.helper.Constant.USER_KEY
 import id.co.example.myuser.helper.ShareUser
-import id.co.example.myuser.model.response.UserSearchItem
+import id.co.example.myuser.model.remote.response.UserSearchItem
 import id.co.example.myuser.ui.adapter.ListSearchAdapter
 import id.co.example.myuser.ui.detail.DetailUserActivity
 import id.co.example.myuser.ui.viewmodel.UserViewModel
+import id.co.example.myuser.ui.viewmodel.ViewModelFactory
 
 class SearchActivity : AppCompatActivity(), ShareUser {
 
     private val listSearchAdapter = ListSearchAdapter(this)
     private lateinit var binding: ActivitySearchBinding
 
-    private val userViewModel: UserViewModel by viewModels()
+    private lateinit var userViewModel: UserViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        userViewModel = obtainViewModel(this)
         searchUser()
         userViewModel.listSearch.observe(this, { listSearch ->
             binding.progressBar.visibility = View.GONE
@@ -95,5 +98,10 @@ class SearchActivity : AppCompatActivity(), ShareUser {
             .setChooserTitle(getString(R.string.label_share_user))
             .setText("User dengan login ${userSearch.login} ber-id dengan ${userSearch.id}")
             .startChooser()
+    }
+
+    private fun obtainViewModel(activity: AppCompatActivity): UserViewModel {
+        val factory = ViewModelFactory.getInstance(activity.application)
+        return ViewModelProvider(activity, factory).get(UserViewModel::class.java)
     }
 }

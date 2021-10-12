@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import id.co.example.myuser.databinding.ListUserItemBinding
 import id.co.example.myuser.helper.ShareUser
-import id.co.example.myuser.model.response.UserSearchItem
+import id.co.example.myuser.model.remote.response.UserSearchItem
 
 class ListSearchAdapter(private val shareUser: ShareUser): RecyclerView.Adapter<ListSearchAdapter.SearchViewHolder>() {
     private val data = ArrayList<UserSearchItem>()

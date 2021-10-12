@@ -1,8 +1,12 @@
-package id.co.example.myuser.model.response
+package id.co.example.myuser.model.remote.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-data class Owner(
+@Parcelize
+data class UserSearchItem(
+
     @field:SerializedName("gists_url")
     val gistsUrl: String? = null,
 
@@ -30,6 +34,9 @@ data class Owner(
     @field:SerializedName("subscriptions_url")
     val subscriptionsUrl: String? = null,
 
+    @field:SerializedName("score")
+    val score: Double? = 0.0,
+
     @field:SerializedName("received_events_url")
     val receivedEventsUrl: String? = null,
 
@@ -56,4 +63,4 @@ data class Owner(
 
     @field:SerializedName("organizations_url")
     val organizationsUrl: String? = null
-)
+): Parcelable
