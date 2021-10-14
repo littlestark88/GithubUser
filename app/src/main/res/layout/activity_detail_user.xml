@@ -52,6 +52,19 @@
         app:layout_constraintStart_toEndOf="@+id/imgUser"
         app:layout_constraintTop_toBottomOf="@+id/tvCompany" />
 
+    <TextView
+        android:id="@+id/tvUsername"
+        android:text="@string/label_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_16sp"
+        android:layout_marginTop="@dimen/dimen_4dp"
+        android:layout_marginStart="@dimen/dimen_28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgUser" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="@dimen/dimen_0dp"
         android:layout_height="@dimen/dimen_50dp"
@@ -189,7 +202,7 @@
         android:layout_marginTop="@dimen/dimen_16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgUser"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvUsername"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
