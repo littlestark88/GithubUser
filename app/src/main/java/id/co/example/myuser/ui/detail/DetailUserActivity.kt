@@ -63,6 +63,7 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
                 appBarUser.tvName.text = detail.login
                 tvCompany.text = detail.company
                 tvLocation.text = detail.location
+                tvUsername.text = detail.name
                 Picasso
                     .get()
                     .load(detail.avatarUrl)
